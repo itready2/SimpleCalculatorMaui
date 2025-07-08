@@ -1,0 +1,23 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:SimpleCalculator.Core;assembly=SimpleCalculator.Core"
+             x:Class="SimpleCalculatorMaui.MainPage">
+
+    <ContentPage.BindingContext>
+        <core:CalculatorViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="30" Spacing="10">
+        <Entry Placeholder="Enter first number" Text="{Binding Number1}" Keyboard="Numeric"/>
+        <Entry Placeholder="Enter second number" Text="{Binding Number2}" Keyboard="Numeric"/>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="+" Command="{Binding AddCommand}" />
+            <Button Text="-" Command="{Binding SubtractCommand}" />
+            <Button Text="*" Command="{Binding MultiplyCommand}" />
+            <Button Text="/" Command="{Binding DivideCommand}" />
+        </HorizontalStackLayout>
+
+        <Label Text="{Binding Result}" FontSize="20" HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>
